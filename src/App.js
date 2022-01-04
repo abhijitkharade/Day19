@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MyComponent />
+    </>
   );
 }
 
-export default App;
+function MyComponent() {
+  const id1 = 100;
+  const list = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const [cardCss, setCardcss] = useState("bg-primary text-light fs-3 p-4 mb-1");
+
+  const primaryTheme = () => setCardcss("bg-primary text-light fs-3 p-4 mb-1");
+  const darkTheme = () => setCardcss("bg-dark text-light fs-3 p-4 mb-1");
+  const dangerTheme = () => setCardcss("bg-danger text-light fs-3 p-4 mb-1");
+
+  return (
+    <div>
+      <input
+        type="button"
+        value="Primary Theme"
+        className="btn btn-primary btn-sm"
+        onClick={primaryTheme}
+      />
+      <input
+        type="button"
+        value="Primary Theme"
+        className="btn btn-dark btn-sm"
+        onClick={darkTheme}
+      />
+      <input
+        type="button"
+        value="Danger Theme"
+        className="btn btn-danger btn-sm"
+        onClick={dangerTheme}
+      />
+      {list.map(() => (
+        <div className={cardCss}>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur,
+          earum. {cardCss}
+        </div>
+      ))}
+    </div>
+  );
+}
