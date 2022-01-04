@@ -1,25 +1,26 @@
-import logo from "./logo.svg";
-import "./App.css";
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React quick shsh
-        </a>
-      </header>
-    </div>
+    <>
+      <MyComponent />
+    </>
   );
 }
 
-export default App;
+function MyComponent() {
+  const id1 = 100;
+  const background = "bg-info";
+
+  return (
+    <div>
+      <h1>Interpolation {id1}</h1>
+      <h1>Interpolation {id1 + 100}</h1>
+
+      <h1 id="1" className="bg-primary">
+        Interpolation {id1}
+      </h1>
+      <h1 id={id1} className={background}>
+        Interpolation {id1}
+      </h1>
+    </div>
+  );
+}
