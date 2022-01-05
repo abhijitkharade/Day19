@@ -21,7 +21,7 @@ function MyComponent() {
 
   return (
     <div>
-      <h1>Hello React and Ajax</h1>
+      <h1>.................Hello React and Ajax</h1>
       <input type="button" value="Make Ajax Call" onClick={makeAjaxCall} />
 
       {ajaxList.map((item, index) => (
